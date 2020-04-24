@@ -128,6 +128,9 @@ public final class PageControlView: UIView {
     }
     
     fileprivate func centerSelectedItem(_ animated: Bool = true) {
+        guard items.count > currentPage else {
+            return
+        }
         let item = items[currentPage]
         let delta = stackView.bounds.midX - item.frame.midX
         stackViewCenterXAnchor.constant = delta
