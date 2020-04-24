@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name           = 'OnboardingKit'
-  spec.version        = '0.0.6'
+  spec.version        = '0.0.7'
   spec.summary        = 'A simple and interactive framework for making iOS onboarding experience easy and fun!'
   spec.homepage       = 'https://github.com/Athlee/OnboardingKit'
   spec.license        = { :type => 'MIT', :file => 'LICENSE' }
@@ -19,6 +19,6 @@ Pod::Spec.new do |spec|
   spec.requires_arc   = true
   spec.swift_versions = ['5.0']
   
-  spec.ios.deployment_target = '10.0'
+  spec.ios.deployment_target = '11.0'
 
 end

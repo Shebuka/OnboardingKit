@@ -8,7 +8,7 @@
 
 ### Requirements
 - Swift 5 & Xcode 10.x.x
-- iOS 10+
+- iOS 11+
 
 ### Features 
 - [x] Customizable page views 
