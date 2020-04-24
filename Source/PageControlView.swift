@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import TZStackView
 
 public final class PageControlView: UIView {
     
@@ -46,7 +45,7 @@ public final class PageControlView: UIView {
     
     public var items: [PageItemView] = []
     
-    fileprivate var stackView = TZStackView()
+    fileprivate var stackView = UIStackView()
     fileprivate var stackViewCenterXAnchor: NSLayoutConstraint!
     fileprivate var stackViewWidthAnchor: NSLayoutConstraint!
     
@@ -130,7 +129,7 @@ public final class PageControlView: UIView {
     fileprivate func reload() {
         subviews.forEach { $0.removeFromSuperview() }
         
-        stackView = TZStackView()
+        stackView = UIStackView()
         stackViewWidthAnchor = nil
         stackViewCenterXAnchor = nil
         items = []

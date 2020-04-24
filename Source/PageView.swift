@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import TZStackView
 
 public protocol Configurable {
     associatedtype Configuration
@@ -20,8 +19,8 @@ public final class PageView: UIView {
     
     public var configuration: OnboardingConfiguration! { didSet { configure(configuration) } }
     
-    fileprivate let topStackView = TZStackView()
-    fileprivate let bottomStackView = TZStackView()
+    fileprivate let topStackView = UIStackView()
+    fileprivate let bottomStackView = UIStackView()
     
     public var image: UIImage = UIImage() { didSet { imageView.image = image } }
     public var pageTitle: String = "" { didSet { titleLabel.text = pageTitle } }

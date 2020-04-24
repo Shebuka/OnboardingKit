@@ -25,10 +25,6 @@
 		048680E61D8E2BA9004B011E /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D71D8E2BA9004B011E /* PageControlView.swift */; };
 		048680E71D8E2BA9004B011E /* PageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D81D8E2BA9004B011E /* PageItemView.swift */; };
 		048680E81D8E2BA9004B011E /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680D91D8E2BA9004B011E /* PageView.swift */; };
-		048680E91D8E2BA9004B011E /* TZSpacerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DB1D8E2BA9004B011E /* TZSpacerView.swift */; };
-		048680EA1D8E2BA9004B011E /* TZStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DC1D8E2BA9004B011E /* TZStackView.swift */; };
-		048680EB1D8E2BA9004B011E /* TZStackViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */; };
-		048680EC1D8E2BA9004B011E /* TZStackViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +60,6 @@
 		048680D71D8E2BA9004B011E /* PageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
 		048680D81D8E2BA9004B011E /* PageItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemView.swift; sourceTree = "<group>"; };
 		048680D91D8E2BA9004B011E /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
-		048680DB1D8E2BA9004B011E /* TZSpacerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZSpacerView.swift; sourceTree = "<group>"; };
-		048680DC1D8E2BA9004B011E /* TZStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackView.swift; sourceTree = "<group>"; };
-		048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewAlignment.swift; sourceTree = "<group>"; };
-		048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZStackViewDistribution.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,21 +176,9 @@
 				048680D71D8E2BA9004B011E /* PageControlView.swift */,
 				048680D81D8E2BA9004B011E /* PageItemView.swift */,
 				048680D91D8E2BA9004B011E /* PageView.swift */,
-				048680DA1D8E2BA9004B011E /* TZStackView */,
 			);
 			name = Source;
 			path = ../../Source;
-			sourceTree = "<group>";
-		};
-		048680DA1D8E2BA9004B011E /* TZStackView */ = {
-			isa = PBXGroup;
-			children = (
-				048680DB1D8E2BA9004B011E /* TZSpacerView.swift */,
-				048680DC1D8E2BA9004B011E /* TZStackView.swift */,
-				048680DD1D8E2BA9004B011E /* TZStackViewAlignment.swift */,
-				048680DE1D8E2BA9004B011E /* TZStackViewDistribution.swift */,
-			);
-			path = TZStackView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				048680E71D8E2BA9004B011E /* PageItemView.swift in Sources */,
-				048680EB1D8E2BA9004B011E /* TZStackViewAlignment.swift in Sources */,
 				048680A91D8E2489004B011E /* OnboardingViewController.swift in Sources */,
 				048680E01D8E2BA9004B011E /* CGRect.swift in Sources */,
 				048680E11D8E2BA9004B011E /* CompletionObject.swift in Sources */,
@@ -318,14 +297,11 @@
 				048680E61D8E2BA9004B011E /* PageControlView.swift in Sources */,
 				048680DF1D8E2BA9004B011E /* Anchor.swift in Sources */,
 				048680671D8E204C004B011E /* AppDelegate.swift in Sources */,
-				048680E91D8E2BA9004B011E /* TZSpacerView.swift in Sources */,
 				048680A71D8E2489004B011E /* DataModel.swift in Sources */,
-				048680EA1D8E2BA9004B011E /* TZStackView.swift in Sources */,
 				048680E51D8E2BA9004B011E /* OnboardingViewDelegate.swift in Sources */,
 				048680E41D8E2BA9004B011E /* OnboardingViewDataSource.swift in Sources */,
 				048680A81D8E2489004B011E /* DeviceTarget.swift in Sources */,
 				048680E81D8E2BA9004B011E /* PageView.swift in Sources */,
-				048680EC1D8E2BA9004B011E /* TZStackViewDistribution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
