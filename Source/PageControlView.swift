@@ -92,23 +92,13 @@ public final class PageControlView: UIView {
         stackViewCenterXAnchor = stackView.anchors.centerXAnchor.constraintEqualToAnchor(anchors.centerXAnchor)
         stackViewWidthAnchor = stackView.anchors.widthAnchor.constraintEqualToConstant(width)
         
-        if #available(iOS 9.0, *) {
-            let anchors = [
-                stackViewWidthAnchor,
-                stackView.heightAnchor.constraint(equalToConstant: height),
-                stackViewCenterXAnchor,
-                stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(anchors)
-        } else {
-            let _anchors = [
-                stackViewWidthAnchor,
-                stackView.anchors.heightAnchor.constraintEqualToConstant(height),
-                stackViewCenterXAnchor,
-                stackView.anchors.centerYAnchor.constraintEqualToAnchor(anchors.centerYAnchor)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(_anchors)
-        }
+        let anchors = [
+            stackViewWidthAnchor,
+            stackView.heightAnchor.constraint(equalToConstant: height),
+            stackViewCenterXAnchor,
+            stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            ].compactMap { $0 }
+        NSLayoutConstraint.activate(anchors)
         
         for _ in 0..<pages {
             let item = PageItemView()

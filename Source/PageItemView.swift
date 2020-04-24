@@ -121,23 +121,13 @@ public final class PageItemView: UIView {
         
         addSubview(circleView)
         
-        if #available(iOS 9.0, *) {
-            let anchors = [
-                circleView.widthAnchor.constraint(equalToConstant: PageControlView.radius * 2),
-                circleView.heightAnchor.constraint(equalToConstant: PageControlView.radius * 2),
-                circleView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                circleView.centerYAnchor.constraint(equalTo: centerYAnchor)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(anchors)
-        } else {
-            let _anchors = [
-                circleView.anchors.widthAnchor.constraintEqualToConstant(PageControlView.radius * 2),
-                circleView.anchors.heightAnchor.constraintEqualToConstant(PageControlView.radius * 2),
-                circleView.anchors.centerXAnchor.constraintEqualToAnchor(anchors.centerXAnchor),
-                circleView.anchors.centerYAnchor.constraintEqualToAnchor(anchors.centerYAnchor)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(_anchors)
-        }
+        let anchors = [
+            circleView.widthAnchor.constraint(equalToConstant: PageControlView.radius * 2),
+            circleView.heightAnchor.constraint(equalToConstant: PageControlView.radius * 2),
+            circleView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            circleView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            ].compactMap { $0 }
+        NSLayoutConstraint.activate(anchors)
         
         
         // ImageView setup
@@ -149,24 +139,13 @@ public final class PageItemView: UIView {
         
         addSubview(imageView)
         
-        if #available(iOS 9.0, *) {
-            let imageViewAnchors = [
-                imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                imageView.topAnchor.constraint(equalTo: topAnchor),
-                imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(imageViewAnchors)
-        } else {
-            let imageViewAnchors = [
-                imageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
-                imageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
-                imageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
-                imageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(imageViewAnchors)
-        }
-        
+        let imageViewAnchors = [
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            ].compactMap { $0 }
+        NSLayoutConstraint.activate(imageViewAnchors)
     }
     
     // MARK: Layer utils

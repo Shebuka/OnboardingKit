@@ -95,23 +95,13 @@ public final class PageView: UIView {
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.image = backgroundImage
         
-        if #available(iOS 9.0, *) {
-            let backgroundAnchors = [
-                backgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                backgroundImageView.topAnchor.constraint(equalTo: topAnchor),
-                backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(backgroundAnchors)
-        } else {
-            let backgroundAnchors = [
-                backgroundImageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
-                backgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
-                backgroundImageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
-                backgroundImageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(backgroundAnchors)
-        }
+        let backgroundAnchors = [
+            backgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            ].compactMap { $0 }
+        NSLayoutConstraint.activate(backgroundAnchors)
     }
     
     fileprivate func setupTopBackgroundImageView() {
@@ -122,23 +112,13 @@ public final class PageView: UIView {
         topBackgroundImageView.contentMode = .scaleToFill
         topBackgroundImageView.image = topBackgroundImage
         
-        if #available(iOS 9.0, *) {
-            let bottomBackgroundAnchors = [
-                topBackgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                topBackgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                topBackgroundImageView.topAnchor.constraint(equalTo: topAnchor),
-                topBackgroundImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(bottomBackgroundAnchors)
-        } else {
-            let bottomBackgroundAnchors = [
-                topBackgroundImageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
-                topBackgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
-                topBackgroundImageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
-                topBackgroundImageView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(bottomBackgroundAnchors)
-        }
+        let bottomBackgroundAnchors = [
+            topBackgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topBackgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topBackgroundImageView.topAnchor.constraint(equalTo: topAnchor),
+            topBackgroundImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
+            ].compactMap { $0 }
+        NSLayoutConstraint.activate(bottomBackgroundAnchors)
     }
     
     fileprivate func setupBottomBackgroundImageView() {
@@ -149,54 +129,29 @@ public final class PageView: UIView {
         bottomBackgroundImageView.contentMode = .scaleToFill
         bottomBackgroundImageView.image = bottomBackgroundImage
         
-        if #available(iOS 9.0, *) {
-            let bottomBackgroundAnchors = [
-                bottomBackgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                bottomBackgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                bottomBackgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                bottomBackgroundImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(bottomBackgroundAnchors)
-        } else {
-            let bottomBackgroundAnchors = [
-                bottomBackgroundImageView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor),
-                bottomBackgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
-                bottomBackgroundImageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor),
-                bottomBackgroundImageView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5)
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(bottomBackgroundAnchors)
-        }
+        let bottomBackgroundAnchors = [
+            bottomBackgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            bottomBackgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            bottomBackgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            bottomBackgroundImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
+            ].compactMap { $0 }
+        NSLayoutConstraint.activate(bottomBackgroundAnchors)
     }
     
     fileprivate func setupTopStackView() {
         // Top StackView layout setup
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        if #available(iOS 9.0, *) {
-            topContainerAnchor = topStackView.topAnchor.constraint(equalTo: topAnchor, constant: topContainerOffset)
-            topContainerHeightAnchor = topStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5, constant: -topContainerOffset - offsetBetweenContainers / 2)
-        } else {
-            topContainerAnchor = topStackView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor, constant: topContainerOffset)
-            topContainerHeightAnchor = topStackView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5, constant: -topContainerOffset - offsetBetweenContainers / 2)
-        }
+        topContainerAnchor = topStackView.topAnchor.constraint(equalTo: topAnchor, constant: topContainerOffset)
+        topContainerHeightAnchor = topStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5, constant: -topContainerOffset - offsetBetweenContainers / 2)
         
-        if #available(iOS 9.0, *) {
-            let topAnchors = [
-                topStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: topContainerOffset),
-                topStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -topContainerOffset),
-                topContainerAnchor,
-                topContainerHeightAnchor
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(topAnchors)
-        } else {
-            let topAnchors = [
-                topStackView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor, constant: topContainerOffset),
-                topStackView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor, constant: -topContainerOffset),
-                topContainerAnchor,
-                topContainerHeightAnchor
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(topAnchors)
-        }
+        let topAnchors = [
+            topStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: topContainerOffset),
+            topStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -topContainerOffset),
+            topContainerAnchor,
+            topContainerHeightAnchor
+            ].compactMap { $0 }
+        NSLayoutConstraint.activate(topAnchors)
         
         // StackViews common setup
         topStackView.axis = .vertical
@@ -225,31 +180,16 @@ public final class PageView: UIView {
         // Bottom StackView layout setup
         bottomStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        if #available(iOS 9.0, *) {
-            bottomContainerAnchor = bottomStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomContainerOffset)
-            bottomContainerHeightAnchor = bottomStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5, constant: -bottomContainerOffset - offsetBetweenContainers / 2)
-        } else {
-            bottomContainerAnchor = bottomStackView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor, constant: -bottomContainerOffset)
-            bottomContainerHeightAnchor = bottomStackView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5, constant: -bottomContainerOffset - offsetBetweenContainers / 2)
-        }
+        bottomContainerAnchor = bottomStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomContainerOffset)
+        bottomContainerHeightAnchor = bottomStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5, constant: -bottomContainerOffset - offsetBetweenContainers / 2)
         
-        if #available(iOS 9.0, *) {
-            let bottomAnchors = [
-                bottomStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: bottomContainerOffset),
-                bottomStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -bottomContainerOffset),
-                bottomContainerAnchor,
-                bottomContainerHeightAnchor
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(bottomAnchors)
-        } else {
-            let bottomAnchors = [
-                bottomStackView.anchors.leadingAnchor.constraintEqualToAnchor(anchors.leadingAnchor, constant: bottomContainerOffset),
-                bottomStackView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor, constant: -bottomContainerOffset),
-                bottomContainerAnchor,
-                bottomContainerHeightAnchor
-                ].compactMap { $0 }
-            NSLayoutConstraint.activate(bottomAnchors)
-        }
+        let bottomAnchors = [
+            bottomStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: bottomContainerOffset),
+            bottomStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -bottomContainerOffset),
+            bottomContainerAnchor,
+            bottomContainerHeightAnchor
+            ].compactMap { $0 }
+        NSLayoutConstraint.activate(bottomAnchors)
         
         // StackViews common setup
         bottomStackView.axis = .vertical

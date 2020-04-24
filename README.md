@@ -7,8 +7,8 @@
 `OnboardingKit` is a simple and interactive framework for making iOS onboarding experience easy and fun!  
 
 ### Requirements
-- Swift 3 & Xcode 8.x.x (check out v0.0.3 & [swift2](https://github.com/Athlee/OnboardingKit/tree/swift2) branch for previous version)
-- iOS 8+
+- Swift 5 & Xcode 10.x.x
+- iOS 10+
 
 ### Features 
 - [x] Customizable page views 
