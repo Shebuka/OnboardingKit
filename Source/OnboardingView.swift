@@ -26,7 +26,7 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
     }
     
     public var topContainerOffset: CGFloat = 8 { didSet { pageViews.forEach { $0.topContainerOffset = topContainerOffset } } }
-    public var bottomPageControlViewOffset: CGFloat = 32 { didSet { bottomPageControlViewAnchor.constant = -bottomPageControlViewOffset } }
+    public var bottomPageControlViewOffset: CGFloat = 8 { didSet { bottomPageControlViewAnchor.constant = -bottomPageControlViewOffset } }
     
     fileprivate var bottomPageControlViewAnchor: NSLayoutConstraint!
     
@@ -68,14 +68,11 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
     // MARK: Setup
     
     fileprivate func setup() {
-        // Refresh
-        topContainerOffset = 8
-        
         // Setup PageControlView
         insertSubview(pageControlView, at: Int.max)
         
         pageControlView.translatesAutoresizingMaskIntoConstraints = false
-        bottomPageControlViewAnchor = pageControlView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomPageControlViewOffset)
+        bottomPageControlViewAnchor = pageControlView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -bottomPageControlViewOffset)
         
         let pageControlViewAnchors = [
             pageControlView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
