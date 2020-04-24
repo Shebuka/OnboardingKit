@@ -9,7 +9,7 @@
 import UIKit
 
 internal extension CGRect {
-  var midPoint: CGPoint {
-    return CGPoint(x: midX, y: midY)
-  }
+    var midPoint: CGPoint {
+        return CGPoint(x: midX, y: midY)
+    }
 }

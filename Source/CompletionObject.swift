@@ -9,18 +9,18 @@
 import Foundation
 
 internal protocol Completion {
-  func complete()
+    func complete()
 }
 
 internal final class CompletionObject: Completion {
-  internal var completion: (() -> Void)?
-  
-  internal static let sharedInstance = CompletionObject()
-  
-  fileprivate init() { }
-  
-  internal func complete() {
-    completion?()
-    completion = nil
-  }
+    internal var completion: (() -> Void)?
+    
+    internal static let sharedInstance = CompletionObject()
+    
+    fileprivate init() { }
+    
+    internal func complete() {
+        completion?()
+        completion = nil
+    }
 }
