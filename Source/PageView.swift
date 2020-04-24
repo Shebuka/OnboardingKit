@@ -17,6 +17,8 @@ public final class PageView: UIView {
     
     // MARK: Properties
     
+    private let pageControlHeight: CGFloat = 34
+    
     public var configuration: OnboardingConfiguration! { didSet { configure(configuration) } }
     
     fileprivate let topStackView = UIStackView()
@@ -38,13 +40,24 @@ public final class PageView: UIView {
     fileprivate var topBackgroundImageView = UIImageView()
     fileprivate var bottomBackgroundImageView = UIImageView()
     
-    public var topContainerOffset: CGFloat = 8 { didSet { topContainerAnchor.constant = topContainerOffset } }
-    public var bottomContainerOffset: CGFloat = 8 { didSet { bottomContainerAnchor.constant = bottomContainerOffset } }
+    public var topContainerOffset: CGFloat = 8 {
+        didSet {
+            topContainerAnchor.constant = topContainerOffset
+            topContainerHeightAnchor.constant = -topContainerOffset + offsetBetweenContainers
+        }
+    }
+    public var bottomContainerOffset: CGFloat = 8 {
+        didSet {
+            bottomContainerAnchor.constant = bottomContainerOffset - pageControlHeight
+            bottomContainerHeightAnchor.constant = -bottomContainerOffset - pageControlHeight - offsetBetweenContainers
+        }
+    }
     
+    // Positive offset = more height for top container
     public var offsetBetweenContainers: CGFloat = 8 {
         didSet {
-            topContainerHeightAnchor.constant = -topContainerOffset - offsetBetweenContainers / 2
-            bottomContainerHeightAnchor.constant = -bottomContainerOffset - offsetBetweenContainers / 2
+            topContainerHeightAnchor.constant = -topContainerOffset + offsetBetweenContainers
+            bottomContainerHeightAnchor.constant = -bottomContainerOffset - pageControlHeight - offsetBetweenContainers
         }
     }
     
@@ -142,12 +155,12 @@ public final class PageView: UIView {
         // Top StackView layout setup
         topStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        topContainerAnchor = topStackView.topAnchor.constraint(equalTo: topAnchor, constant: topContainerOffset)
-        topContainerHeightAnchor = topStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5, constant: -topContainerOffset - offsetBetweenContainers / 2)
+        topContainerAnchor = topStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: topContainerOffset)
+        topContainerHeightAnchor = topStackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -topContainerOffset + offsetBetweenContainers)
         
         let topAnchors = [
-            topStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: topContainerOffset),
-            topStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -topContainerOffset),
+            topStackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 0),
+            topStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: 0),
             topContainerAnchor,
             topContainerHeightAnchor
             ].compactMap { $0 }
@@ -157,35 +170,29 @@ public final class PageView: UIView {
         topStackView.axis = .vertical
         topStackView.alignment = .center
         topStackView.distribution = .fill
-        topStackView.spacing = -10 // TODO: Make inspectable
+        topStackView.spacing = 0 // TODO: Make inspectable
         
         // Add subviews to the top StackView
         topStackView.addArrangedSubview(imageView)
-        topStackView.addArrangedSubview(titleLabel)
         
         // Intial setup for top StackView subviews
         imageView.isOpaque = true
         imageView.contentMode = .scaleAspectFit
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 35)
-        titleLabel.textAlignment = .center
-        titleLabel.text = pageTitle
-        //titleLabel.backgroundColor = .redColor()
         
         // This way the StackView knows how to size & align subviews.
         imageView.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .vertical)
-        titleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: .vertical)
     }
     
     fileprivate func setupBottomStackView() {
         // Bottom StackView layout setup
         bottomStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        bottomContainerAnchor = bottomStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomContainerOffset)
-        bottomContainerHeightAnchor = bottomStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5, constant: -bottomContainerOffset - offsetBetweenContainers / 2)
+        bottomContainerAnchor = bottomStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -bottomContainerOffset - pageControlHeight)
+        bottomContainerHeightAnchor = bottomStackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -bottomContainerOffset - pageControlHeight - offsetBetweenContainers)
         
         let bottomAnchors = [
-            bottomStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: bottomContainerOffset),
-            bottomStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -bottomContainerOffset),
+            bottomStackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 0),
+            bottomStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: 0),
             bottomContainerAnchor,
             bottomContainerHeightAnchor
             ].compactMap { $0 }
@@ -198,14 +205,24 @@ public final class PageView: UIView {
         bottomStackView.spacing = 0 // TODO: Make inspectable
         
         // Add subviews to the bottom StackView
+        bottomStackView.addArrangedSubview(titleLabel)
         bottomStackView.addArrangedSubview(descriptionLabel)
         
-        // Intial setup for top StackView subviews
-        descriptionLabel.font = UIFont.systemFont(ofSize: 17)
+        // Intial setup for bottom StackView subviews
+        titleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1)
+        titleLabel.textAlignment = .center
+        titleLabel.text = pageTitle
+        //titleLabel.backgroundColor = .redColor()
+        
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         descriptionLabel.textAlignment = .center
         descriptionLabel.text = pageDescription
         descriptionLabel.numberOfLines = 0
         //descriptionLabel.backgroundColor = .orangeColor()
+        
+        // This way the StackView knows how to size & align subviews.
+        titleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 252), for: .vertical)
+        descriptionLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .vertical)
     }
     
 }
