@@ -6,22 +6,19 @@
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
-Pod::Spec.new do |s|
+Pod::Spec.new do |spec|
 
-  s.name         = "OnboardingKit"
-  s.version      = "0.0.5"
-  s.summary      = "A simple and interactive framework for making iOS onboarding experience easy and fun!"
-  s.homepage     = "https://github.com/Athlee/OnboardingKit"
-  s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.author             = { "Eugene Mozharovsky" => "mozharovsky@live.com" }
-  s.social_media_url   = "http://twitter.com/dottieyottie"
-  s.platform     = :ios, "10.0"
-  s.ios.deployment_target = "8.0"
-  s.source       = { :git => "https://github.com/Athlee/OnboardingKit.git", :tag => s.version }
-  s.source_files  = "Source/**/*.swift"
-  s.requires_arc = true
-
-  # Waiting for Swift 3 support
-  # s.dependency 'TZStackView'
+  spec.name           = 'OnboardingKit'
+  spec.version        = '0.0.5'
+  spec.summary        = 'A simple and interactive framework for making iOS onboarding experience easy and fun!'
+  spec.homepage       = 'https://github.com/Athlee/OnboardingKit'
+  spec.license        = { :type => 'MIT', :file => 'LICENSE' }
+  spec.author         = { 'Eugene Mozharovsky' => 'mozharovsky@live.com' }
+  spec.source         = { :git => 'https://github.com/Athlee/OnboardingKit.git', :tag => spec.version.to_s }
+  spec.source_files   = 'Source/**/*.swift'
+  spec.requires_arc   = true
+  spec.swift_versions = ['5.0']
+  
+  spec.ios.deployment_target = '10.0'
 
 end
