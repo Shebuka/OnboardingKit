@@ -82,6 +82,8 @@ public final class DataModel: NSObject, OnboardingViewDelegate, OnboardingViewDa
   }
   
   public func onboardingView(_ onboardingView: OnboardingView, configurePageView pageView: PageView, atPage page: Int) {
+    pageView.offsetBetweenContainers = 50
+    
     pageView.titleLabel.textColor = UIColor.white
     pageView.titleLabel.layer.shadowOpacity = 0.6
     pageView.titleLabel.layer.shadowColor = UIColor.black.cgColor
