@@ -87,7 +87,7 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
             pageControlView.trailingAnchor.constraint(equalTo: trailingAnchor, constant:  -8),
             bottomPageControlViewAnchor,
             pageControlView.heightAnchor.constraint(equalToConstant: PageControlView.radiusExpanded)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(pageControlViewAnchors)
     } else {
         let pageControlViewAnchors = [
@@ -95,7 +95,7 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
             pageControlView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor, constant:  -8),
             bottomPageControlViewAnchor,
             pageControlView.anchors.heightAnchor.constraintEqualToConstant(PageControlView.radiusExpanded)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(pageControlViewAnchors)
     }
     
@@ -138,7 +138,7 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
             pageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             pageView.topAnchor.constraint(equalTo: topAnchor),
             pageView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(anchors)
     } else {
         let _anchors = [
@@ -146,7 +146,7 @@ public final class OnboardingView: UIView, CAAnimationDelegate {
             pageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
             pageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
             pageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(_anchors)
     }
     

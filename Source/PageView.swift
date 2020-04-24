@@ -102,7 +102,7 @@ public final class PageView: UIView {
             backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundImageView.topAnchor.constraint(equalTo: topAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(backgroundAnchors)
     } else {
         let backgroundAnchors = [
@@ -110,7 +110,7 @@ public final class PageView: UIView {
             backgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
             backgroundImageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
             backgroundImageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(backgroundAnchors)
     }
   }
@@ -129,7 +129,7 @@ public final class PageView: UIView {
             topBackgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topBackgroundImageView.topAnchor.constraint(equalTo: topAnchor),
             topBackgroundImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(bottomBackgroundAnchors)
     } else {
         let bottomBackgroundAnchors = [
@@ -137,7 +137,7 @@ public final class PageView: UIView {
             topBackgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
             topBackgroundImageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
             topBackgroundImageView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(bottomBackgroundAnchors)
     }
   }
@@ -156,7 +156,7 @@ public final class PageView: UIView {
             bottomBackgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             bottomBackgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             bottomBackgroundImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(bottomBackgroundAnchors)
     } else {
         let bottomBackgroundAnchors = [
@@ -164,7 +164,7 @@ public final class PageView: UIView {
             bottomBackgroundImageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
             bottomBackgroundImageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor),
             bottomBackgroundImageView.anchors.heightAnchor.constraintEqualToAnchor(anchors.heightAnchor, multiplier: 0.5)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(bottomBackgroundAnchors)
     }
   }
@@ -187,7 +187,7 @@ public final class PageView: UIView {
             topStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -topContainerOffset),
             topContainerAnchor,
             topContainerHeightAnchor
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(topAnchors)
     } else {
         let topAnchors = [
@@ -195,7 +195,7 @@ public final class PageView: UIView {
             topStackView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor, constant: -topContainerOffset),
             topContainerAnchor,
             topContainerHeightAnchor
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(topAnchors)
     }
     
@@ -240,7 +240,7 @@ public final class PageView: UIView {
             bottomStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -bottomContainerOffset),
             bottomContainerAnchor,
             bottomContainerHeightAnchor
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(bottomAnchors)
     } else {
         let bottomAnchors = [
@@ -248,7 +248,7 @@ public final class PageView: UIView {
             bottomStackView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor, constant: -bottomContainerOffset),
             bottomContainerAnchor,
             bottomContainerHeightAnchor
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(bottomAnchors)
     }
     

@@ -99,7 +99,7 @@ public final class PageControlView: UIView {
             stackView.heightAnchor.constraint(equalToConstant: height),
             stackViewCenterXAnchor,
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(anchors)
     } else {
         let _anchors = [
@@ -107,7 +107,7 @@ public final class PageControlView: UIView {
             stackView.anchors.heightAnchor.constraintEqualToConstant(height),
             stackViewCenterXAnchor,
             stackView.anchors.centerYAnchor.constraintEqualToAnchor(anchors.centerYAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(_anchors)
     }
     

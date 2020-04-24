@@ -127,7 +127,7 @@ public final class PageItemView: UIView {
             circleView.heightAnchor.constraint(equalToConstant: PageControlView.radius * 2),
             circleView.centerXAnchor.constraint(equalTo: centerXAnchor),
             circleView.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(anchors)
     } else {
         let _anchors = [
@@ -135,7 +135,7 @@ public final class PageItemView: UIView {
             circleView.anchors.heightAnchor.constraintEqualToConstant(PageControlView.radius * 2),
             circleView.anchors.centerXAnchor.constraintEqualToAnchor(anchors.centerXAnchor),
             circleView.anchors.centerYAnchor.constraintEqualToAnchor(anchors.centerYAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(_anchors)
     }
     
@@ -155,7 +155,7 @@ public final class PageItemView: UIView {
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(imageViewAnchors)
     } else {
         let imageViewAnchors = [
@@ -163,7 +163,7 @@ public final class PageItemView: UIView {
             imageView.anchors.trailingAnchor.constraintEqualToAnchor(anchors.trailingAnchor),
             imageView.anchors.topAnchor.constraintEqualToAnchor(anchors.topAnchor),
             imageView.anchors.bottomAnchor.constraintEqualToAnchor(anchors.bottomAnchor)
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         NSLayoutConstraint.activate(imageViewAnchors)
     }
     
@@ -176,7 +176,7 @@ public final class PageItemView: UIView {
       arcCenter: bounds.midPoint,
       radius: PageControlView.radius,
       startAngle: 0,
-      endAngle: CGFloat(M_PI) * 2,
+      endAngle: CGFloat.pi * 2,
       clockwise: false
     )
     
@@ -194,7 +194,7 @@ public final class PageItemView: UIView {
       arcCenter: bounds.midPoint,
       radius: PageControlView.radiusExpanded,
       startAngle: 0,
-      endAngle: CGFloat(M_PI) * 2,
+      endAngle: CGFloat.pi * 2,
       clockwise: false
     )
     

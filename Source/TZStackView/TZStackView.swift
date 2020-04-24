@@ -89,7 +89,7 @@ open class TZStackView: UIView {
     }
     
     fileprivate func removeHiddenListener(_ view: UIView) {
-        if let index = registeredKvoSubviews.index(of: view) {
+        if let index = registeredKvoSubviews.firstIndex(of: view) {
             view.removeObserver(self, forKeyPath: "hidden", context: &kvoContext)
             registeredKvoSubviews.remove(at: index)
         }
@@ -125,7 +125,7 @@ open class TZStackView: UIView {
     
     fileprivate func didFinishSettingHiddenValue(_ arrangedSubview: UIView, hidden: Bool) {
         arrangedSubview.isHidden = hidden
-        if let index = animatingToHiddenViews.index(of: arrangedSubview) {
+        if let index = animatingToHiddenViews.firstIndex(of: arrangedSubview) {
             animatingToHiddenViews.remove(at: index)
         }
         addHiddenListener(arrangedSubview)
@@ -141,7 +141,7 @@ open class TZStackView: UIView {
             }
         }
         for entry in queueEntriesToRemove {
-            if let index = animationDidStopQueueEntries.index(of: entry) {
+            if let index = animationDidStopQueueEntries.firstIndex(of: entry) {
                 animationDidStopQueueEntries.remove(at: index)
             }
         }
@@ -154,7 +154,7 @@ open class TZStackView: UIView {
     }
     
     open func removeArrangedSubview(_ view: UIView) {
-        if let index = arrangedSubviews.index(of: view) {
+        if let index = arrangedSubviews.firstIndex(of: view) {
             arrangedSubviews.remove(at: index)
         }
     }
