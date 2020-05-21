@@ -14,7 +14,7 @@ public final class PageControlView: UIView {
     
     public static var radius: CGFloat = 5
     public static var radiusExpanded: CGFloat = 17
-    public static var interitemSpace: CGFloat = 5
+    public static var interitemSpace: CGFloat = 0
     
     public var currentPage: Int = 0 {
         didSet {
@@ -81,12 +81,14 @@ public final class PageControlView: UIView {
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         
-        stackView.spacing = -40 // TODO: Make it inspectable 
+        let itemWidth = PageControlView.radiusExpanded * 2
+        
+        stackView.spacing = -1 * itemWidth + PageControlView.interitemSpace * 2 // TODO: Make it inspectable 
         
         layer.masksToBounds = false
         
-        let width = PageControlView.radiusExpanded * 2 * CGFloat(pages) + CGFloat(pages) * PageControlView.interitemSpace
-        let height = PageControlView.radiusExpanded * 2
+        let width = itemWidth + itemWidth * CGFloat(pages) + PageControlView.interitemSpace * CGFloat(pages - 1)
+        let height = itemWidth
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackViewCenterXAnchor = stackView.anchors.centerXAnchor.constraintEqualToAnchor(anchors.centerXAnchor)
