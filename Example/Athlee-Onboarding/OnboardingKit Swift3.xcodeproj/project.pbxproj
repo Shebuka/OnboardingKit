@@ -46,7 +46,7 @@
 		048680771D8E204D004B011E /* OnboardingKit Swift3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnboardingKit Swift3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0486807B1D8E204D004B011E /* OnboardingKit_Swift3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingKit_Swift3Tests.swift; sourceTree = "<group>"; };
 		0486807D1D8E204D004B011E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		048680A41D8E2489004B011E /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		048680A41D8E2489004B011E /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; tabWidth = 2; };
 		048680A51D8E2489004B011E /* DeviceTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTarget.swift; sourceTree = "<group>"; };
 		048680A61D8E2489004B011E /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		048680AA1D8E2499004B011E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
